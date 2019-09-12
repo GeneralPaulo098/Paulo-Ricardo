@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block conteudo %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+<form action="/atendimento/medico/create/" method="POST">
+    {% csrf_token %}
+    <h1>Novo Medico</h1>
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Nome</span>
+        </div>
+        {{form.nome}}
+        {{form.nome.errors}}
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">crm</span>
+        </div>
+        {{form.crm}}
+        {{form.crm.errors}}
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">especialidade</span>
+        </div>
+        {{form.especialidade}}
+        {{form.especialidade.errors}}
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">idade</span>
+        </div>
+        {{form.idade}}
+        {{form.idade.errors}}
+    </div>
+
+    <div class="input-group mb-3">
+        <button type="submit" class="btn btn-primary">OK</button>
+    </div>
+</form>
+{% endblock %}

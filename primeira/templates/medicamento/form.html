@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block conteudo %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+<form action="/atendimento/medicamento/create/" method="POST">
+    {% csrf_token %}
+    <h1>Novo Medico</h1>
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Nome</span>
+        </div>
+        {{form.nome}}
+        {{form.nome.errors}}
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">valor</span>
+        </div>
+        {{form.valor}}
+        {{form.valor.errors}}
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">gravida</span>
+        </div>
+        {{form.gravida}}
+    </div>
+
+    <div class="input-group mb-3">
+        <button type="submit" class="btn btn-primary">OK</button>
+    </div>
+</form>
+{% endblock %}
