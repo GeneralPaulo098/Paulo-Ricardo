@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block conteudo %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+<form action="/primeira/carrinho/" method="POST">
+    {% csrf_token %}
+    <h1>Novo carrinho</h1>
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">tamanho</span>
+        </div>
+        {{form.tamanho}}
+        {{form.tamanho.errors}}
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">cor</span>
+        </div>
+        {{form.cor}}
+        {{form.cor.errors}}
+    </div>
+
+
+    <div class="input-group mb-3">
+        <button type="submit" class="btn btn-primary">OK</button>
+    </div>
+</form>
+{% endblock %}

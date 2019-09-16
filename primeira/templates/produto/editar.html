@@ -3,12 +3,12 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/custom.css' %}">
 
-<form action="/atendimento/medicamento/create/" method="POST">
+<form action="/primeira/produto/editar/{{id}}/" method="POST">
     {% csrf_token %}
-    <h1>Novo Medico</h1>
+    <h1>Editar produto</h1>
     <div class="input-group input-group-sm mb-3">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Nome</span>
+            <span class="input-group-text" for='{{form.nome.id_for_span}}' id="inputGroup-sizing-sm">Nome</span>
         </div>
         {{form.nome}}
         {{form.nome.errors}}
@@ -16,16 +16,17 @@
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">valor</span>
+            <span class="input-group-text" for='{{form.codigo.id_for_span}}' id="inputGroup-sizing-default">codigo</span>
         </div>
-        {{form.valor}}
-        {{form.valor.errors}}
+        {{form.codigo}}
+        {{form.codigo.errors}}
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">gravida</span>
+            <span class="input-group-text" for='{{form.carrinho.id_for_span}}' id="inputGroup-sizing-default">carrinho</span>
         </div>
-        {{form.gravida}}
+        {{form.carrinho}}
+        {{form.carrinho.errors}}
     </div>
 
     <div class="input-group mb-3">
@@ -33,3 +34,4 @@
     </div>
 </form>
 {% endblock %}
+
