@@ -3,7 +3,7 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/custom.css' %}">
 
-<form action="/primeira/carrinho/" method="POST">
+<form action="/primeira/carrinho/create/" method="POST">
     {% csrf_token %}
     <h1>Novo carrinho</h1>
     <div class="input-group input-group-sm mb-3">
